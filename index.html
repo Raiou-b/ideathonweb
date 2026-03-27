@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IdeathonWeb - アイデアソンプラットフォーム</title>
+  <meta name="description" content="アイデアソンの企画・運営・アイデア実現をサポートするプラットフォーム">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">💡 IdeathonWeb</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">ホーム</a></li>
+        <li><a href="propose.html">アイデアソンを作成</a></li>
+        <li><a href="realization.html">テーマを具体化</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">🚀 Ideathon Platform</span>
+        <h1>アイデアを、<br>形にする場所へ</h1>
+        <p>アイデアソンの企画から、アイデアの発展・実現まで。チームで課題解決の新しいアイデアを生み出しましょう。</p>
+        <div class="hero-actions">
+          <a href="propose.html" class="btn btn-white btn-lg">🎯 アイデアソンを作成</a>
+          <a href="realization.html" class="btn btn-white-outline btn-lg">💡 テーマを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-ideathons">0</div>
+          <div class="stat-label">アイデアソン数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-ideas">0</div>
+          <div class="stat-label">アイデア数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-active">0</div>
+          <div class="stat-label">開催中</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section" style="background: var(--surface-2);">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center">IdeathonWebでできること</h2>
+        <p class="section-subtitle" style="text-align:center">アイデアソンの全サイクルをサポートします</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">📋</span>
+            <h3>アイデアソンの企画</h3>
+            <p>テーマ・日時・参加者などを設定し、アイデアソンイベントを簡単に作成できます。</p>
+            <a href="propose.html" class="btn btn-primary btn-sm">作成する →</a>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💡</span>
+            <h3>アイデアの具体化</h3>
+            <p>参加者のアイデアを管理・発展させ、進捗を追跡しながら実現に向けて進めます。</p>
+            <a href="realization.html" class="btn btn-primary btn-sm">見てみる →</a>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🗳️</span>
+            <h3>投票・フィードバック</h3>
+            <p>アイデアに投票し、コミュニティの力で優れたアイデアを育てましょう。</p>
+            <a href="realization.html" class="btn btn-primary btn-sm">参加する →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent events -->
+    <section class="section">
+      <div class="container">
+        <div class="events-header">
+          <div>
+            <h2 class="section-title">最近のアイデアソン</h2>
+            <p class="section-subtitle">開催中・開催予定のアイデアソン一覧</p>
+          </div>
+          <a href="propose.html" class="btn btn-primary">＋ 新規作成</a>
+        </div>
+        <div class="events-grid" id="recent-events">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About / How it works -->
+    <section class="section" style="background: var(--surface-2);">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <h2>アイデアソンとは？</h2>
+            <p>アイデアソン（Ideathon）とは、特定のテーマに沿ってチームで集中的にアイデアを出し合い、最良のソリューションを模索するイベントです。</p>
+            <p>ハッカソンのアイデア版として、プログラミングスキルがなくても参加でき、社会課題やビジネス課題への創造的な解決策を生み出します。</p>
+          </div>
+          <div class="about-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <h4>テーマを設定する</h4>
+                <p>解決したい課題やテーマを設定し、参加者を募ります。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <h4>アイデアを出し合う</h4>
+                <p>参加者がさまざまな視点からアイデアを提案・議論します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <h4>アイデアを具体化する</h4>
+                <p>優れたアイデアを選び、プロトタイプや実装計画を作成します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-text">
+                <h4>実現に向けて進む</h4>
+                <p>進捗を管理しながら、アイデアを実際のプロジェクトへと発展させます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>さあ、始めましょう</h2>
+        <p>新しいアイデアソンを作成して、チームのクリエイティビティを引き出しましょう。</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="propose.html" class="btn btn-white btn-lg">🎯 アイデアソンを作成</a>
+          <a href="realization.html" class="btn btn-white-outline btn-lg">💡 既存のテーマを見る</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IdeathonWeb. アイデアを形にするプラットフォーム。</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

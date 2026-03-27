@@ -1,0 +1,13 @@
+{
+  "name": "ideathonweb",
+  "version": "1.0.0",
+  "description": "アイデアソンに関するウェブサイト",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server ."
+  },
+  "keywords": ["ideathon", "アイデアソン", "web"],
+  "author": "",
+  "license": "MIT"
+}
