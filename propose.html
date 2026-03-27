@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アイデアソンを作成 - IdeathonWeb</title>
+  <meta name="description" content="新しいアイデアソンイベントを作成・設定します">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/propose.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">💡 IdeathonWeb</a>
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="propose.html" class="active">アイデアソンを作成</a></li>
+        <li><a href="realization.html">テーマを具体化</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">ホーム</a>
+        <span>/</span>
+        <span>アイデアソンを作成</span>
+      </nav>
+      <h1>📋 新しいアイデアソンを作成</h1>
+      <p>アイデアソンのテーマや詳細を設定し、参加者を募りましょう。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="propose-layout">
+
+      <!-- Main form -->
+      <div>
+
+        <!-- Form card -->
+        <div class="form-card">
+          <h2 class="form-card-title">📝 基本情報</h2>
+
+          <form id="propose-form" novalidate>
+
+            <!-- Title -->
+            <div class="form-group">
+              <label class="form-label" for="title">
+                タイトル <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                placeholder="例: スマートシティ・アイデアソン 2025"
+                maxlength="100"
+                required
+              >
+              <div class="form-error" id="title-error"></div>
+            </div>
+
+            <!-- Date row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="date">
+                  開始日 <span class="required">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="form-control"
+                  required
+                >
+                <div class="form-error" id="date-error"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="endDate">終了日</label>
+                <input
+                  type="date"
+                  id="endDate"
+                  name="endDate"
+                  class="form-control"
+                >
+              </div>
+            </div>
+
+            <!-- Participants row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="participants">
+                  対象参加者 <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="participants"
+                  name="participants"
+                  class="form-control"
+                  placeholder="例: 大学生・社会人"
+                  required
+                >
+                <div class="form-error" id="participants-error"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="maxParticipants">最大人数</label>
+                <input
+                  type="number"
+                  id="maxParticipants"
+                  name="maxParticipants"
+                  class="form-control"
+                  placeholder="例: 50"
+                  min="1"
+                  max="9999"
+                >
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+              <label class="form-label">
+                テーマカテゴリー <span class="required">*</span>
+              </label>
+              <div class="category-grid">
+                <div class="category-option">
+                  <input type="radio" id="cat-technology"  name="category" value="technology">
+                  <label for="cat-technology"><span>💻</span>テクノロジー</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-environment" name="category" value="environment">
+                  <label for="cat-environment"><span>🌱</span>環境・サステナブル</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-community"   name="category" value="community">
+                  <label for="cat-community"><span>🏘️</span>コミュニティ</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-education"   name="category" value="education">
+                  <label for="cat-education"><span>📚</span>教育</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-health"      name="category" value="health">
+                  <label for="cat-health"><span>🏥</span>ヘルスケア</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-business"    name="category" value="business">
+                  <label for="cat-business"><span>💼</span>ビジネス</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-art"         name="category" value="art">
+                  <label for="cat-art"><span>🎨</span>アート・文化</label>
+                </div>
+                <div class="category-option">
+                  <input type="radio" id="cat-other"       name="category" value="other">
+                  <label for="cat-other"><span>💡</span>その他</label>
+                </div>
+              </div>
+              <div class="form-error" id="category-error"></div>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+              <label class="form-label" for="status">ステータス</label>
+              <select id="status" name="status" class="form-control">
+                <option value="upcoming">開催予定</option>
+                <option value="active">開催中</option>
+                <option value="completed">終了</option>
+              </select>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+              <label class="form-label">タグ <span class="form-hint">（最大5つ、Enterまたはカンマで追加）</span></label>
+              <div class="tags-input-wrapper" id="tags-wrapper">
+                <input
+                  type="text"
+                  id="tags-input"
+                  placeholder="タグを入力してEnter"
+                  autocomplete="off"
+                >
+              </div>
+              <div class="form-hint">例: AI、IoT、スマートシティ</div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label class="form-label" for="description">
+                説明 <span class="required">*</span>
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="4"
+                placeholder="アイデアソンの概要・目的・テーマの詳細を入力してください"
+                maxlength="1000"
+                required
+              ></textarea>
+              <div class="form-error" id="description-error"></div>
+            </div>
+
+            <!-- Details -->
+            <div class="form-group">
+              <label class="form-label" for="details">詳細設定・補足情報</label>
+              <textarea
+                id="details"
+                name="details"
+                class="form-control"
+                rows="3"
+                placeholder="審査基準、使用ツール、当日のスケジュールなど補足情報があれば入力してください"
+                maxlength="2000"
+              ></textarea>
+              <div class="form-hint">任意・最大2000文字</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <button type="button" id="btn-reset" class="btn btn-outline">リセット</button>
+              <button type="submit" class="btn btn-primary btn-lg">🚀 アイデアソンを作成する</button>
+            </div>
+
+          </form>
+        </div><!-- /form-card -->
+
+      </div><!-- /main col -->
+
+      <!-- Sidebar -->
+      <aside class="propose-sidebar">
+
+        <!-- Live preview -->
+        <div class="sidebar-card">
+          <h3>👁️ プレビュー</h3>
+          <div class="preview-title" id="preview-title">タイトル未入力</div>
+          <div class="preview-meta" id="preview-meta"></div>
+          <div class="preview-desc" id="preview-desc">説明未入力</div>
+        </div>
+
+        <!-- Tips -->
+        <div class="sidebar-card">
+          <h3>💡 作成のヒント</h3>
+          <ul class="sidebar-tips">
+            <li>具体的で魅力的なタイトルをつけましょう</li>
+            <li>解決したい課題を明確に記述しましょう</li>
+            <li>参加者層に合ったカテゴリーを選びましょう</li>
+            <li>タグで検索しやすくなります</li>
+            <li>詳細設定で当日のルールを明記しましょう</li>
+          </ul>
+        </div>
+
+        <!-- Next steps -->
+        <div class="sidebar-card">
+          <h3>📌 作成後の流れ</h3>
+          <ul class="sidebar-tips">
+            <li>「テーマを具体化」でアイデアを管理</li>
+            <li>参加者のアイデアに投票・コメント</li>
+            <li>進捗状況を更新しながら実現へ</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div><!-- /propose-layout -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IdeathonWeb. アイデアを形にするプラットフォーム。</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
