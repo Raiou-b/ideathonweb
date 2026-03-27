@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テーマを具体化 - IdeathonWeb</title>
+  <meta name="description" content="アイデアソンのテーマを具体化し、アイデアを発展・管理します">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/realization.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">💡 IdeathonWeb</a>
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="propose.html">アイデアソンを作成</a></li>
+        <li><a href="realization.html" class="active">テーマを具体化</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">ホーム</a>
+        <span>/</span>
+        <span>テーマを具体化</span>
+      </nav>
+      <h1>💡 テーマの具体化・アイデア管理</h1>
+      <p>アイデアソンのアイデアを整理・発展させ、実現に向けて進めましょう。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="realization-layout">
+
+      <!-- Sidebar: ideathon list -->
+      <aside class="realization-sidebar">
+        <div class="sidebar-panel">
+          <div class="sidebar-panel-title">📋 アイデアソン一覧</div>
+          <ul class="ideathon-list" id="ideathon-list">
+            <!-- Rendered by JS -->
+          </ul>
+        </div>
+        <div style="margin-top:1rem">
+          <a href="propose.html" class="btn btn-primary" style="width:100%;justify-content:center">
+            ＋ 新規アイデアソン作成
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div>
+
+        <!-- Ideathon title -->
+        <div style="margin-bottom:1.5rem">
+          <h2 id="ideathon-detail-title" style="font-size:1.4rem;font-weight:800;margin-bottom:0.4rem">
+            アイデアソンを選択してください
+          </h2>
+          <div id="ideathon-detail-sub" style="display:flex;gap:0.5rem;flex-wrap:wrap"></div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="filter-bar">
+          <input
+            type="search"
+            id="search-ideas"
+            class="form-control"
+            placeholder="🔍 アイデアを検索..."
+          >
+          <div class="filter-chips">
+            <button class="filter-chip active" data-status="all" type="button">すべて</button>
+            <button class="filter-chip" data-status="planning"    type="button">計画中</button>
+            <button class="filter-chip" data-status="development" type="button">開発中</button>
+            <button class="filter-chip" data-status="prototype"   type="button">プロト</button>
+            <button class="filter-chip" data-status="completed"   type="button">完了</button>
+          </div>
+          <button id="btn-add-idea" class="btn btn-success" type="button" disabled>
+            ＋ アイデアを追加
+          </button>
+        </div>
+
+        <!-- Ideas container -->
+        <div id="ideas-container">
+          <div class="no-selection">
+            <div class="icon">👈</div>
+            <p>左のリストからアイデアソンを選択してください</p>
+          </div>
+        </div>
+
+        <!-- Detail panel -->
+        <div id="detail-panel" class="detail-panel" style="margin-top:1.5rem">
+          <!-- Rendered by JS -->
+        </div>
+
+      </div><!-- /main col -->
+
+    </div><!-- /realization-layout -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IdeathonWeb. アイデアを形にするプラットフォーム。</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Add/Edit Idea Modal -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">アイデアを追加</h3>
+        <button id="modal-close" class="modal-close" type="button" aria-label="閉じる">✕</button>
+      </div>
+
+      <form id="modal-form" novalidate>
+        <input type="hidden" name="idea-id">
+
+        <div class="form-group">
+          <label class="form-label" for="idea-title">タイトル <span class="required">*</span></label>
+          <input type="text" id="idea-title" name="idea-title" class="form-control"
+                 placeholder="アイデアのタイトル" required maxlength="100">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idea-author">チーム名 / 発案者</label>
+          <input type="text" id="idea-author" name="idea-author" class="form-control"
+                 placeholder="例: 田中チーム" maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idea-description">概要説明 <span class="required">*</span></label>
+          <textarea id="idea-description" name="idea-description" class="form-control" rows="3"
+                    placeholder="アイデアの概要を説明してください" required maxlength="500"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idea-details">詳細説明</label>
+          <textarea id="idea-details" name="idea-details" class="form-control" rows="3"
+                    placeholder="技術的な詳細、実現方法など" maxlength="1000"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">ステータス</label>
+          <div class="status-select-group">
+            <div class="status-opt">
+              <input type="radio" id="status-planning"    name="idea-status" value="planning" checked>
+              <label for="status-planning">計画中</label>
+            </div>
+            <div class="status-opt">
+              <input type="radio" id="status-development" name="idea-status" value="development">
+              <label for="status-development">開発中</label>
+            </div>
+            <div class="status-opt">
+              <input type="radio" id="status-prototype"   name="idea-status" value="prototype">
+              <label for="status-prototype">プロトタイプ</label>
+            </div>
+            <div class="status-opt">
+              <input type="radio" id="status-completed"   name="idea-status" value="completed">
+              <label for="status-completed">完了</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idea-progress">
+            進捗 <span id="progress-display">0%</span>
+          </label>
+          <input type="range" id="idea-progress" name="idea-progress"
+                 class="form-control" min="0" max="100" value="0"
+                 style="padding:0.3rem 0">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idea-tags">タグ <span class="form-hint">（カンマ区切り）</span></label>
+          <input type="text" id="idea-tags" name="idea-tags" class="form-control"
+                 placeholder="例: AI, リサイクル, IoT">
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btn-modal-cancel" class="btn btn-outline">
+            キャンセル
+          </button>
+          <button type="submit" class="btn btn-primary">保存する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
